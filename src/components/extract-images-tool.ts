@@ -112,7 +112,7 @@ export class ExtractImagesToolComponent {
   private async handleFileSelected(file?: File) {
     if (!file) return;
     if (file.type !== 'application/pdf' && !file.name.toLowerCase().endsWith('.pdf')) {
-      NotificationService.warning('გთხოვთ აირჩიოთ PDF ფაილი');
+      NotificationService.warning('გთხოვთ, აირჩიოთ PDF ფაილი');
       return;
     }
 

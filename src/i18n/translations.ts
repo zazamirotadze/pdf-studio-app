@@ -7,73 +7,73 @@ export const translations = {
     privacyNotice: '🔒 ფაილები მუშავდება მხოლოდ თქვენს ბრაუზერში და არ იგზავნება სერვერზე.',
 
     nav: {
-      merge: 'PDF შერწყმა',
+      merge: 'PDF გაერთიანება',
       split: 'PDF დაშლა',
       extractImages: 'სურათების ამოღება'
     },
 
     dropzone: {
-      dragHere: 'გადმოათრიეთ PDF ფაილი აქ',
-      dragMultipleHere: 'გადმოათრიეთ PDF ფაილები აქ (ან ერთიდაიგივე რამდენჯერმე)',
-      orClick: 'ან დააჭირეთ ასატვირთად',
+      dragHere: 'ჩააგდეთ PDF ფაილი აქ',
+      dragMultipleHere: 'ჩააგდეთ PDF ფაილები აქ (შეგიძლიათ ერთი და იგივე ფაილი რამდენჯერმე)',
+      orClick: 'ან დააჭირეთ ფაილის ასარჩევად',
       supported: 'მხარდაჭერილია: PDF დოკუმენტები',
-      addMore: '+ კიდევ დამატება',
-      clearAll: 'ყველას გასუფთავება'
+      addMore: '+ ფაილის დამატება',
+      clearAll: 'სიის გასუფთავება'
     },
 
     actions: {
       download: 'ჩამოტვირთვა',
-      downloadZip: 'ყველას გადმოწერა (ZIP)',
-      processing: 'მუშავდება...',
+      downloadZip: 'ყველას ჩამოტვირთვა (ZIP)',
+      processing: 'მიმდინარეობს დამუშავება...',
       delete: 'წაშლა',
       duplicate: 'დუბლირება',
-      moveUp: 'ზემოთ',
-      moveDown: 'ქვემოთ',
+      moveUp: 'ზემოთ გადატანა',
+      moveDown: 'ქვემოთ გადატანა',
       reset: 'ფაილის შეცვლა',
       addRange: '+ დიაპაზონის დამატება',
-      removeRange: 'წაშლა'
+      removeRange: 'დიაპაზონის წაშლა'
     },
 
     mergeTool: {
-      title: 'PDF ფაილების შერწყმა',
-      subtitle: 'ატვირთეთ რამდენიმე ფაილი (ან ერთიდაიგივე რამდენჯერმე), დაალაგეთ თანმიმდევრობა და სურვილისამებრ მონიშნეთ კონკრეტული გვერდები.',
+      title: 'PDF ფაილების გაერთიანება',
+      subtitle: 'ატვირთეთ რამდენიმე ფაილი (ან ერთი და იგივე დოკუმენტი რამდენჯერმე), განსაზღვრეთ თანმიმდევრობა და სურვილისამებრ მიუთითეთ გვერდების დიაპაზონი.',
       customRangeCheckbox: 'გვერდების დიაპაზონის მითითება',
       fromPage: 'დან:',
       toPage: 'მდე:',
       totalPages: 'სულ: {total} გვ.',
-      mergeBtn: 'PDF-ების შერწყმა',
-      minFilesError: 'გთხოვთ ატვირთოთ მინიმუმ 1 ფაილი დასამერჯად.',
-      invalidRangeError: 'გვერდების დიაპაზონი არასწორია ფაილისთვის: {name} (გვერდები უნდა იყოს 1-დან {total}-მდე)',
-      successMessage: 'დოკუმენტები წარმატებით შეირწყა!'
+      mergeBtn: 'PDF-ების გაერთიანება',
+      minFilesError: 'გთხოვთ, ატვირთოთ მინიმუმ 1 ფაილი გასაერთიანებლად.',
+      invalidRangeError: 'გვერდების დიაპაზონი არასწორია ფაილისთვის: «{name}» (გვერდები უნდა იყოს 1-დან {total}-მდე).',
+      successMessage: 'დოკუმენტები წარმატებით გაერთიანდა!'
     },
 
     splitTool: {
       title: 'PDF ფაილის დაშლა დიაპაზონებით',
       subtitle: 'დაამატეთ სასურველი რაოდენობის დიაპაზონები (+ და - ღილაკებით) და შექმენით შესაბამისი რაოდენობის ცალკეული PDF ფაილები.',
       partLabel: 'ნაწილი {index}:',
-      fromLabel: 'დან გვერდი:',
-      toLabel: 'მდე გვერდი:',
+      fromLabel: 'გვერდიდან:',
+      toLabel: 'გვერდამდე:',
       splitBtn: 'PDF-ის დაშლა ({count} ნაწილი)',
-      successMessage: 'PDF წარმატებით დაიშალა!',
-      invalidRange: 'შეცდომა {index} ნაწილში: გვერდები უნდა იყოს 1-დან {total}-მდე და "დან" უნდა იყოს ნაკლები ან ტოლი "მდე"-ზე.'
+      successMessage: 'PDF დოკუმენტი წარმატებით დაიშალა!',
+      invalidRange: 'შეცდომა {index}-ე ნაწილში: გვერდების ნომრები უნდა იყოს 1-დან {total}-მდე და საწყისი გვერდი არ უნდა აღემატებოდეს საბოლოოს.'
     },
 
     extractTool: {
       title: 'სურათების ამოღება PDF-იდან',
-      subtitle: 'ამოიღეთ დოკუმენტში ჩაშენებული ყველა სურათი და ფოტო ორიგინალი გარჩევადობითა და ხარისხით.',
+      subtitle: 'დოკუმენტიდან ყველა ჩაშენებული სურათისა და ფოტოს ამოღება ორიგინალი გარჩევადობითა და ხარისხით.',
       extractBtn: 'სურათების ამოღება',
       foundCount: 'ნაპოვნია {count} სურათი',
       noImagesFound: 'ამ PDF დოკუმენტში ჩაშენებული სურათები არ მოიძებნა.',
       pageLabel: 'გვერდი {page}',
-      downloadSingle: 'გადმოწერა',
-      downloadAllZip: 'ყველა სურათის გადმოწერა (ZIP)',
-      successMessage: 'სურათები წარმატებით ამოიღო!'
+      downloadSingle: 'ჩამოტვირთვა',
+      downloadAllZip: 'ყველა სურათის ჩამოტვირთვა (ZIP)',
+      successMessage: 'სურათები წარმატებით ამოღებულია!'
     },
 
     notifications: {
       fileLoaded: 'ფაილი წარმატებით ჩაიტვირთა',
-      errorLoading: 'ფაილის წაკითხვის შეცდომა',
-      genericError: 'დაფიქსირდა შეცდომა ოპერაციისას'
+      errorLoading: 'ფაილის წაკითხვისას დაფიქსირდა შეცდომა',
+      genericError: 'ოპერაციის შესრულებისას დაფიქსირდა შეცდომა'
     }
   },
 
@@ -89,12 +89,12 @@ export const translations = {
     },
 
     dropzone: {
-      dragHere: 'Drag & drop PDF file here',
-      dragMultipleHere: 'Drag & drop PDF files here (or same file multiple times)',
+      dragHere: 'Drop PDF file here',
+      dragMultipleHere: 'Drop PDF files here (or the same file multiple times)',
       orClick: 'or click to browse files',
       supported: 'Supported: PDF documents',
       addMore: '+ Add More Files',
-      clearAll: 'Clear All'
+      clearAll: 'Clear List'
     },
 
     actions: {
@@ -107,7 +107,7 @@ export const translations = {
       moveDown: 'Move Down',
       reset: 'Change File',
       addRange: '+ Add Range',
-      removeRange: 'Remove'
+      removeRange: 'Remove Range'
     },
 
     mergeTool: {
@@ -119,7 +119,7 @@ export const translations = {
       totalPages: 'Total: {total} pages',
       mergeBtn: 'Merge PDFs',
       minFilesError: 'Please upload at least 1 PDF file to merge.',
-      invalidRangeError: 'Invalid page range for file: {name} (must be between 1 and {total})',
+      invalidRangeError: 'Invalid page range for file: «{name}» (must be between 1 and {total}).',
       successMessage: 'Documents merged successfully!'
     },
 
@@ -131,7 +131,7 @@ export const translations = {
       toLabel: 'To page:',
       splitBtn: 'Split PDF ({count} parts)',
       successMessage: 'PDF split successfully!',
-      invalidRange: 'Error in part {index}: pages must be between 1 and {total} with "From" <= "To".'
+      invalidRange: 'Error in part {index}: page numbers must be between 1 and {total} and "From" cannot exceed "To".'
     },
 
     extractTool: {

@@ -53,7 +53,7 @@ export class MergeToolComponent {
   private async handleFilesAdded(newFiles: File[]) {
     const pdfFiles = newFiles.filter(f => f.type === 'application/pdf' || f.name.toLowerCase().endsWith('.pdf'));
     if (pdfFiles.length === 0) {
-      NotificationService.warning('გთხოვთ აირჩიოთ PDF ფორმატის ფაილი');
+      NotificationService.warning('გთხოვთ, აირჩიოთ PDF ფორმატის ფაილი');
       return;
     }
 
@@ -93,7 +93,7 @@ export class MergeToolComponent {
     const t = I18nService.t();
     slot.innerHTML = `
       <div class="files-header-info">
-        <span class="badge-count">${this.files.length} ფაილი დასამერჯად</span>
+        <span class="badge-count">${this.files.length} ფაილი გასაერთიანებლად</span>
         <button class="btn-text-danger" id="clear-all-btn">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18m-2 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
           ${t.dropzone.clearAll}
@@ -119,7 +119,7 @@ export class MergeToolComponent {
       const sizeFormatted = (item.size / (1024 * 1024)).toFixed(2) + ' MB';
 
       itemEl.innerHTML = `
-        <div class="row-drag-handle" title="გადაადგილება (Drag to Reorder)">
+        <div class="row-drag-handle" title="თანმიმდევრობის შეცვლა">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="12" r="1"/><circle cx="9" cy="5" r="1"/><circle cx="9" cy="19" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="5" r="1"/><circle cx="15" cy="19" r="1"/></svg>
           <span class="row-number-pill">${index + 1}</span>
         </div>
