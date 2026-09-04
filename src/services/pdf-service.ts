@@ -1,7 +1,7 @@
 import { PDFDocument } from 'pdf-lib';
 import * as pdfjsLib from 'pdfjs-dist';
 import JSZip from 'jszip';
-import type { ExtractedImageItem } from '../types';
+import type { ExtractedImageItem, CompressLevel, CompressResult } from '../types';
 
 export class PDFService {
   /**
@@ -242,6 +242,85 @@ export class PDFService {
       console.warn('Error converting raw image to item:', e);
       return null;
     }
+  }
+
+  /**
+   * Compresses a PDF using page-level rendering, JPEG progressive re-encoding, and object stream optimization.
+   */
+  static async compressPdf(
+    pdfBuffer: ArrayBuffer,
+    level: CompressLevel,
+    onProgress?: (current: number, total: number) => void
+  ): Promise<CompressResult> {
+    const loadingTask = pdfjsLib.getDocument({ data: pdfBuffer.slice(0) });
+    const pdf = await loadingTask.promise;
+    const totalPages = pdf.numPages;
+
+    // Determine scale and JPEG quality based on level
+    let scale = 1.35;
+    let quality = 0.72;
+
+    if (level === 'extreme') {
+      scale = 1.0;
+      quality = 0.50;
+    } else if (level === 'low') {
+      scale = 1.8;
+      quality = 0.86;
+    }
+
+    const compressedPdf = await PDFDocument.create();
+
+    for (let pageNum = 1; pageNum <= totalPages; pageNum++) {
+      if (onProgress) {
+        onProgress(pageNum, totalPages);
+      }
+
+      const page = await pdf.getPage(pageNum);
+      const viewport = page.getViewport({ scale });
+      const origViewport = page.getViewport({ scale: 1.0 });
+
+      const canvas = document.createElement('canvas');
+      canvas.width = Math.round(viewport.width);
+      canvas.height = Math.round(viewport.height);
+      const ctx = canvas.getContext('2d');
+
+      if (!ctx) continue;
+
+      await (page.render({ canvasContext: ctx, viewport } as any) as any).promise;
+
+      // Convert canvas to JPEG blob with specified compression quality
+      const jpegDataUrl = canvas.toDataURL('image/jpeg', quality);
+      const base64Data = jpegDataUrl.split(',')[1];
+      const byteString = atob(base64Data);
+      const ab = new ArrayBuffer(byteString.length);
+      const ia = new Uint8Array(ab);
+      for (let i = 0; i < byteString.length; i++) {
+        ia[i] = byteString.charCodeAt(i);
+      }
+
+      const embeddedJpg = await compressedPdf.embedJpg(ab);
+      const newPage = compressedPdf.addPage([origViewport.width, origViewport.height]);
+      newPage.drawImage(embeddedJpg, {
+        x: 0,
+        y: 0,
+        width: origViewport.width,
+        height: origViewport.height
+      });
+    }
+
+    const compressedBytes = await compressedPdf.save({ useObjectStreams: true });
+    const originalSize = pdfBuffer.byteLength;
+    const newSize = compressedBytes.byteLength;
+    const savedBytes = Math.max(0, originalSize - newSize);
+    const savedPercentage = Math.max(0, Math.round((savedBytes / originalSize) * 100));
+
+    return {
+      bytes: compressedBytes,
+      originalSize,
+      newSize,
+      savedPercentage,
+      savedBytes
+    };
   }
 
   /**

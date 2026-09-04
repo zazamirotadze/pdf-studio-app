@@ -5,6 +5,7 @@ import { HeaderComponent } from './components/header';
 import { MergeToolComponent } from './components/merge-tool';
 import { SplitToolComponent } from './components/split-tool';
 import { ExtractImagesToolComponent } from './components/extract-images-tool';
+import { CompressToolComponent } from './components/compress-tool';
 
 class App {
   private appRoot: HTMLElement;
@@ -42,11 +43,11 @@ class App {
     const lang = I18nService.getLang();
     document.documentElement.lang = lang;
     if (lang === 'ka') {
-      document.title = 'PDF Studio — PDF ფაილების შერწყმა, დაშლა და სურათების ამოღება ონლაინ';
-      document.querySelector('meta[name="description"]')?.setAttribute('content', 'უფასო ონლაინ PDF ხელსაწყოები: PDF ფაილების შერწყმა გვერდების დიაპაზონით, PDF-ის დაშლა ნაწილებად და სურათების ამოღება. 100% ლოკალური და უსაფრთხო ბრაუზერში.');
+      document.title = 'PDF Studio — PDF ფაილების გაერთიანება, დაშლა, შეკუმშვა და სურათების ამოღება ონლაინ';
+      document.querySelector('meta[name="description"]')?.setAttribute('content', 'უფასო ონლაინ PDF ხელსაწყოები: PDF ფაილების გაერთიანება გვერდების დიაპაზონით, PDF-ის დაშლა ნაწილებად, PDF-ის შეკუმშვა და სურათების ამოღება. 100% ლოკალური და უსაფრთხო ბრაუზერში.');
     } else {
-      document.title = 'PDF Studio — Merge, Split & Extract Images from PDF Online';
-      document.querySelector('meta[name="description"]')?.setAttribute('content', 'Free online PDF tools: Merge PDF files with page ranges, split PDF by custom ranges, and extract images. 100% private and client-side.');
+      document.title = 'PDF Studio — Merge, Split, Compress & Extract Images from PDF Online';
+      document.querySelector('meta[name="description"]')?.setAttribute('content', 'Free online PDF tools: Merge PDF files with page ranges, split PDF by custom ranges, compress PDF, and extract images. 100% private and client-side.');
     }
 
     // Render Header
@@ -65,6 +66,9 @@ class App {
         break;
       case 'extract-images':
         currentView = new ExtractImagesToolComponent().render();
+        break;
+      case 'compress':
+        currentView = new CompressToolComponent().render();
         break;
       case 'merge':
       default:

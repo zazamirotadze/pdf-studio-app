@@ -9,7 +9,8 @@ export const translations = {
     nav: {
       merge: 'PDF გაერთიანება',
       split: 'PDF დაშლა',
-      extractImages: 'სურათების ამოღება'
+      extractImages: 'სურათების ამოღება',
+      compress: 'PDF შეკუმშვა'
     },
 
     dropzone: {
@@ -70,6 +71,37 @@ export const translations = {
       successMessage: 'სურათები წარმატებით ამოღებულია!'
     },
 
+    compressTool: {
+      title: 'PDF ფაილის შეკუმშვა',
+      subtitle: 'შეამცირეთ PDF დოკუმენტის ზომა ხარისხის მაქსიმალური შენარჩუნებით. 100% უფასო და უსაფრთხო.',
+      levelsTitle: 'აირჩიეთ შეკუმშვის დონე:',
+      levels: {
+        extreme: {
+          title: 'მაქსიმალური შეკუმშვა',
+          badge: 'უმცირესი ზომა',
+          desc: 'ფაილის ზომის უდიდესი შემცირება. საუკეთესოა ელ-ფოსტით (Gmail/Outlook) გასაგზავნად.'
+        },
+        recommended: {
+          title: 'რეკომენდებული შეკუმშვა',
+          badge: 'ოპტიმალური',
+          desc: 'იდეალური ბალანსი გამოსახულების კარგ ხარისხსა და მცირე ზომას შორის.'
+        },
+        low: {
+          title: 'მცირე შეკუმშვა',
+          badge: 'მაღალი ხარისხი',
+          desc: 'მაღალი ვიზუალური ხარისხის შენარჩუნება ზომის მსუბუქი ოპტიმიზაციით.'
+        }
+      },
+      compressBtn: 'PDF-ის შეკუმშვა',
+      progressText: 'მიმდინარეობს გვერდის დამუშავება: {current} / {total} ({percent}%)',
+      resultSuccess: '🎉 PDF დოკუმენტი წარმატებით შეიკუმშა!',
+      originalSize: 'საწყისი ზომა',
+      compressedSize: 'ახალი ზომა',
+      savedBadge: 'დაზოგილია {percent}% ({savedSize})',
+      downloadBtn: 'შეკუმშული PDF-ის ჩამოტვირთვა',
+      successMessage: 'PDF წარმატებით შეიკუმშა!'
+    },
+
     notifications: {
       fileLoaded: 'ფაილი წარმატებით ჩაიტვირთა',
       errorLoading: 'ფაილის წაკითხვისას დაფიქსირდა შეცდომა',
@@ -85,7 +117,8 @@ export const translations = {
     nav: {
       merge: 'Merge PDF',
       split: 'Split PDF',
-      extractImages: 'Extract Images'
+      extractImages: 'Extract Images',
+      compress: 'Compress PDF'
     },
 
     dropzone: {
@@ -144,6 +177,37 @@ export const translations = {
       downloadSingle: 'Download',
       downloadAllZip: 'Download All (ZIP)',
       successMessage: 'Images extracted successfully!'
+    },
+
+    compressTool: {
+      title: 'Compress PDF File',
+      subtitle: 'Reduce the file size of your PDF while maintaining optimal visual quality. 100% free & secure.',
+      levelsTitle: 'Choose Compression Level:',
+      levels: {
+        extreme: {
+          title: 'Extreme Compression',
+          badge: 'Smallest size',
+          desc: 'Maximum file size reduction. Best for emailing or slow connections.'
+        },
+        recommended: {
+          title: 'Recommended Compression',
+          badge: 'Optimal',
+          desc: 'Best balance between good image quality and small file size.'
+        },
+        low: {
+          title: 'Low Compression',
+          badge: 'High quality',
+          desc: 'Maintains high visual quality with moderate size reduction.'
+        }
+      },
+      compressBtn: 'Compress PDF',
+      progressText: 'Processing page: {current} / {total} ({percent}%)',
+      resultSuccess: '🎉 PDF successfully compressed!',
+      originalSize: 'Original size',
+      compressedSize: 'Compressed size',
+      savedBadge: 'Saved {percent}% ({savedSize})',
+      downloadBtn: 'Download Compressed PDF',
+      successMessage: 'PDF compressed successfully!'
     },
 
     notifications: {

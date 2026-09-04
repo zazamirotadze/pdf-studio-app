@@ -1,6 +1,8 @@
-export type ToolId = 'merge' | 'split' | 'extract-images';
+export type ToolId = 'merge' | 'split' | 'extract-images' | 'compress';
 
 export type Language = 'ka' | 'en';
+
+export type CompressLevel = 'extreme' | 'recommended' | 'low';
 
 export interface MergeFileItem {
   id: string;
@@ -31,4 +33,12 @@ export interface ExtractedImageItem {
   format: 'png' | 'jpeg';
   pageNumber: number;
   sizeFormatted: string;
+}
+
+export interface CompressResult {
+  bytes: Uint8Array;
+  originalSize: number;
+  newSize: number;
+  savedPercentage: number;
+  savedBytes: number;
 }
