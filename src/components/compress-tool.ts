@@ -35,7 +35,7 @@ export class CompressToolComponent {
             <div class="file-summary-bar">
               <div class="file-info-col">
                 <span class="file-name-highlight">${this.file.name}</span>
-                <span class="file-pages-badge">სულ: ${this.pageCount} გვერდი</span>
+                <span class="file-pages-badge">${t.common.totalPages.replace('{total}', this.pageCount.toString())}</span>
                 <span class="file-size-badge">${this.formatBytes(this.file.size)}</span>
               </div>
               <button class="btn btn-secondary btn-sm" id="change-file-btn" ${this.isProcessing ? 'disabled' : ''}>
@@ -168,7 +168,7 @@ export class CompressToolComponent {
   private async handleFileSelected(file?: File) {
     if (!file) return;
     if (file.type !== 'application/pdf' && !file.name.toLowerCase().endsWith('.pdf')) {
-      NotificationService.warning('გთხოვთ, აირჩიოთ PDF ფაილი');
+      NotificationService.warning(I18nService.t().notifications.selectPdfWarning);
       return;
     }
 

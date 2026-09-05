@@ -11,6 +11,10 @@ class App {
   private appRoot: HTMLElement;
   private currentTool: ToolId = 'merge';
   private headerComponent: HeaderComponent;
+  private mergeTool = new MergeToolComponent();
+  private splitTool = new SplitToolComponent();
+  private extractImagesTool = new ExtractImagesToolComponent();
+  private compressTool = new CompressToolComponent();
 
   constructor() {
     this.appRoot = document.querySelector<HTMLDivElement>('#app')!;
@@ -62,17 +66,17 @@ class App {
 
     switch (this.currentTool) {
       case 'split':
-        currentView = new SplitToolComponent().render();
+        currentView = this.splitTool.render();
         break;
       case 'extract-images':
-        currentView = new ExtractImagesToolComponent().render();
+        currentView = this.extractImagesTool.render();
         break;
       case 'compress':
-        currentView = new CompressToolComponent().render();
+        currentView = this.compressTool.render();
         break;
       case 'merge':
       default:
-        currentView = new MergeToolComponent().render();
+        currentView = this.mergeTool.render();
         break;
     }
 
@@ -85,7 +89,7 @@ class App {
     const t = I18nService.t();
     footer.innerHTML = `
       <div class="footer-container">
-        <p class="footer-copyright">© ${new Date().getFullYear()} ${t.appTitle}. 100% Client-Side PDF Tools.</p>
+        <p class="footer-copyright">© ${new Date().getFullYear()} ${t.appTitle}. ${t.footerRights}</p>
         <p class="footer-note">${t.privacyNotice}</p>
       </div>
     `;

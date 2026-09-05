@@ -60,7 +60,7 @@ export class HeaderComponent {
             <button class="lang-btn ${currentLang === 'ka' ? 'active' : ''}" data-lang="ka">GE</button>
             <button class="lang-btn ${currentLang === 'en' ? 'active' : ''}" data-lang="en">EN</button>
           </div>
-          <button class="theme-toggle-btn" id="theme-toggle-btn" title="Toggle Theme" aria-label="Toggle Theme">
+          <button class="theme-toggle-btn" id="theme-toggle-btn" title="${t.themeToggle}" aria-label="${t.themeToggle}">
             <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="5"/>
               <line x1="12" y1="1" x2="12" y2="3"/>

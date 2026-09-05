@@ -33,7 +33,7 @@ export class SplitToolComponent {
             <div class="file-summary-bar">
               <div class="file-info-col">
                 <span class="file-name-highlight">${this.file.name}</span>
-                <span class="file-pages-badge">სულ: ${this.pageCount} გვერდი</span>
+                <span class="file-pages-badge">${t.common.totalPages.replace('{total}', this.pageCount.toString())}</span>
               </div>
               <button class="btn btn-secondary btn-sm" id="change-file-btn">
                 ${t.actions.reset}
@@ -42,7 +42,7 @@ export class SplitToolComponent {
 
             <div class="split-ranges-card">
               <div class="ranges-header">
-                <h3 class="ranges-title">დაშლის დიაპაზონები</h3>
+                <h3 class="ranges-title">${t.splitTool.rangesTitle}</h3>
                 <button class="btn btn-secondary btn-sm" id="add-range-btn">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                   ${t.actions.addRange}
@@ -55,7 +55,7 @@ export class SplitToolComponent {
             ${this.generatedParts ? `
               <div class="generated-parts-card">
                 <div class="generated-header">
-                  <span class="generated-title">🎉 შექმნილი PDF ფაილები (${this.generatedParts.length}):</span>
+                  <span class="generated-title">${t.splitTool.generatedTitle.replace('{count}', this.generatedParts.length.toString())}</span>
                   <button class="btn btn-primary btn-sm" id="download-zip-btn">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                     ${t.actions.downloadZip}
@@ -101,7 +101,7 @@ export class SplitToolComponent {
   private async handleFileSelected(file?: File) {
     if (!file) return;
     if (file.type !== 'application/pdf' && !file.name.toLowerCase().endsWith('.pdf')) {
-      NotificationService.warning('გთხოვთ, აირჩიოთ PDF ფაილი');
+      NotificationService.warning(I18nService.t().notifications.selectPdfWarning);
       return;
     }
 
@@ -206,7 +206,7 @@ export class SplitToolComponent {
         </div>
 
         <div class="range-pages-summary">
-          <span>(${Math.max(0, group.to - group.from + 1)} გვ.)</span>
+          <span>${t.common.pagesCount.replace('{count}', Math.max(0, group.to - group.from + 1).toString())}</span>
         </div>
 
         <div class="range-controls">
@@ -220,14 +220,14 @@ export class SplitToolComponent {
       fromIn?.addEventListener('input', () => {
         group.from = parseInt(fromIn.value, 10) || 1;
         this.generatedParts = null;
-        row.querySelector('.range-pages-summary span')!.textContent = `(${Math.max(0, group.to - group.from + 1)} გვ.)`;
+        row.querySelector('.range-pages-summary span')!.textContent = t.common.pagesCount.replace('{count}', Math.max(0, group.to - group.from + 1).toString());
       });
 
       const toIn = row.querySelector('.to-input') as HTMLInputElement;
       toIn?.addEventListener('input', () => {
         group.to = parseInt(toIn.value, 10) || this.pageCount;
         this.generatedParts = null;
-        row.querySelector('.range-pages-summary span')!.textContent = `(${Math.max(0, group.to - group.from + 1)} გვ.)`;
+        row.querySelector('.range-pages-summary span')!.textContent = t.common.pagesCount.replace('{count}', Math.max(0, group.to - group.from + 1).toString());
       });
 
       row.querySelector('.remove-range-btn')?.addEventListener('click', () => {

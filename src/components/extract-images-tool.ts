@@ -33,7 +33,7 @@ export class ExtractImagesToolComponent {
             <div class="file-summary-bar">
               <div class="file-info-col">
                 <span class="file-name-highlight">${this.file.name}</span>
-                <span class="file-pages-badge">სულ: ${this.pageCount} გვერდი</span>
+                <span class="file-pages-badge">${t.common.totalPages.replace('{total}', this.pageCount.toString())}</span>
               </div>
               <button class="btn btn-secondary btn-sm" id="change-file-btn">
                 ${t.actions.reset}
@@ -46,7 +46,7 @@ export class ExtractImagesToolComponent {
                   <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
                 </div>
                 <h3>${this.file.name}</h3>
-                <p>დააჭირეთ ღილაკს დოკუმენტიდან ყველა ჩაშენებული სურათისა და გრაფიკის ამოსაღებად.</p>
+                <p>${t.extractTool.startPrompt}</p>
                 <button class="btn btn-primary btn-lg" id="start-extract-btn" ${this.isProcessing ? 'disabled' : ''}>
                   ${this.isProcessing ? `
                     <span class="spinner"></span> ${t.actions.processing}
@@ -112,7 +112,7 @@ export class ExtractImagesToolComponent {
   private async handleFileSelected(file?: File) {
     if (!file) return;
     if (file.type !== 'application/pdf' && !file.name.toLowerCase().endsWith('.pdf')) {
-      NotificationService.warning('გთხოვთ, აირჩიოთ PDF ფაილი');
+      NotificationService.warning(I18nService.t().notifications.selectPdfWarning);
       return;
     }
 

@@ -5,6 +5,15 @@ export const translations = {
     appTitle: 'PDF Studio',
     tagline: 'სწრაფი, მარტივი და 100% უსაფრთხო PDF ხელსაწყოები',
     privacyNotice: '🔒 ფაილები მუშავდება მხოლოდ თქვენს ბრაუზერში და არ იგზავნება სერვერზე.',
+    footerRights: 'ყველა უფლება დაცულია. 100% ლოკალური PDF ხელსაწყოები.',
+    themeToggle: 'თემის შეცვლა',
+
+    common: {
+      totalPages: 'სულ: {total} გვერდი',
+      pagesCount: '({count} გვ.)',
+      pageSingle: '{count} გვერდი',
+      selectPdfWarning: 'გთხოვთ, აირჩიოთ PDF ფაილი'
+    },
 
     nav: {
       merge: 'PDF გაერთიანება',
@@ -38,6 +47,8 @@ export const translations = {
     mergeTool: {
       title: 'PDF ფაილების გაერთიანება',
       subtitle: 'ატვირთეთ რამდენიმე ფაილი (ან ერთი და იგივე დოკუმენტი რამდენჯერმე), განსაზღვრეთ თანმიმდევრობა და სურვილისამებრ მიუთითეთ გვერდების დიაპაზონი.',
+      filesToMergeBadge: '{count} ფაილი გასაერთიანებლად',
+      reorderTooltip: 'თანმიმდევრობის შეცვლა',
       customRangeCheckbox: 'გვერდების დიაპაზონის მითითება',
       fromPage: 'დან:',
       toPage: 'მდე:',
@@ -51,9 +62,11 @@ export const translations = {
     splitTool: {
       title: 'PDF ფაილის დაშლა დიაპაზონებით',
       subtitle: 'დაამატეთ სასურველი რაოდენობის დიაპაზონები (+ და - ღილაკებით) და შექმენით შესაბამისი რაოდენობის ცალკეული PDF ფაილები.',
+      rangesTitle: 'დაშლის დიაპაზონები',
       partLabel: 'ნაწილი {index}:',
       fromLabel: 'გვერდიდან:',
       toLabel: 'გვერდამდე:',
+      generatedTitle: '🎉 შექმნილი PDF ფაილები ({count}):',
       splitBtn: 'PDF-ის დაშლა ({count} ნაწილი)',
       successMessage: 'PDF დოკუმენტი წარმატებით დაიშალა!',
       invalidRange: 'შეცდომა {index}-ე ნაწილში: გვერდების ნომრები უნდა იყოს 1-დან {total}-მდე და საწყისი გვერდი არ უნდა აღემატებოდეს საბოლოოს.'
@@ -62,6 +75,7 @@ export const translations = {
     extractTool: {
       title: 'სურათების ამოღება PDF-იდან',
       subtitle: 'დოკუმენტიდან ყველა ჩაშენებული სურათისა და ფოტოს ამოღება ორიგინალი გარჩევადობითა და ხარისხით.',
+      startPrompt: 'დააჭირეთ ღილაკს დოკუმენტიდან ყველა ჩაშენებული სურათისა და გრაფიკის ამოსაღებად.',
       extractBtn: 'სურათების ამოღება',
       foundCount: 'ნაპოვნია {count} სურათი',
       noImagesFound: 'ამ PDF დოკუმენტში ჩაშენებული სურათები არ მოიძებნა.',
@@ -105,7 +119,8 @@ export const translations = {
     notifications: {
       fileLoaded: 'ფაილი წარმატებით ჩაიტვირთა',
       errorLoading: 'ფაილის წაკითხვისას დაფიქსირდა შეცდომა',
-      genericError: 'ოპერაციის შესრულებისას დაფიქსირდა შეცდომა'
+      genericError: 'ოპერაციის შესრულებისას დაფიქსირდა შეცდომა',
+      selectPdfWarning: 'გთხოვთ, აირჩიოთ PDF ფაილი'
     }
   },
 
@@ -113,6 +128,15 @@ export const translations = {
     appTitle: 'PDF Studio',
     tagline: 'Fast, Simple & 100% Private In-Browser PDF Tools',
     privacyNotice: '🔒 Privacy Guaranteed: All processing happens in your browser. No files are uploaded to any server.',
+    footerRights: 'All rights reserved. 100% Client-Side PDF Tools.',
+    themeToggle: 'Toggle Theme',
+
+    common: {
+      totalPages: 'Total: {total} pages',
+      pagesCount: '({count} pages)',
+      pageSingle: '{count} page',
+      selectPdfWarning: 'Please select a valid PDF file'
+    },
 
     nav: {
       merge: 'Merge PDF',
@@ -146,6 +170,8 @@ export const translations = {
     mergeTool: {
       title: 'Merge PDF Files',
       subtitle: 'Upload multiple files (or the same file multiple times), reorder them, and optionally select specific page ranges.',
+      filesToMergeBadge: '{count} file(s) to merge',
+      reorderTooltip: 'Reorder',
       customRangeCheckbox: 'Specify page range',
       fromPage: 'From:',
       toPage: 'To:',
@@ -159,9 +185,11 @@ export const translations = {
     splitTool: {
       title: 'Split PDF by Custom Ranges',
       subtitle: 'Add as many range groups as needed (+ and - buttons) to generate exact PDF files for each range.',
+      rangesTitle: 'Split Ranges',
       partLabel: 'Part {index}:',
       fromLabel: 'From page:',
       toLabel: 'To page:',
+      generatedTitle: '🎉 Created PDF Files ({count}):',
       splitBtn: 'Split PDF ({count} parts)',
       successMessage: 'PDF split successfully!',
       invalidRange: 'Error in part {index}: page numbers must be between 1 and {total} and "From" cannot exceed "To".'
@@ -170,6 +198,7 @@ export const translations = {
     extractTool: {
       title: 'Extract Images from PDF',
       subtitle: 'Extract all embedded images and photos from the PDF document in their original resolution and quality.',
+      startPrompt: 'Click the button to extract all embedded images and graphics from the document.',
       extractBtn: 'Extract Images',
       foundCount: 'Found {count} images',
       noImagesFound: 'No embedded images found in this PDF document.',
@@ -213,7 +242,8 @@ export const translations = {
     notifications: {
       fileLoaded: 'File loaded successfully',
       errorLoading: 'Error loading file',
-      genericError: 'An error occurred during operation'
+      genericError: 'An error occurred during operation',
+      selectPdfWarning: 'Please select a valid PDF file'
     }
   }
 };
